@@ -17,9 +17,9 @@ def servo_angle_y(position_y):
     position_y = int(position_y * (180 / rows))
     return position_y
 
-model = YOLO(r"E:\Downloads\best (2).pt")
+model = YOLO(r"C:\Users\Deepak r\OneDrive\Desktop\My_projects\Areca_project\Areca_model.pt")
 
-classNames = ['Mature Areca Nuts', 'Semi-Mature Areca Nuts', 'Young Areca Nuts']
+classNames = ['Mature Areca Nuts', 'a', 'Young Areca Nuts']
 myColor = (0, 0, 255)
 while True:
     success, img = cap.read()
@@ -43,7 +43,6 @@ while True:
         conf = math.ceil((box.conf[0] * 100)) / 100
         # Class Name
         cls = int(box.cls[0])
-        print(cls)
         currentClass = classNames[cls]
         print(currentClass)
         if conf > 0.5:
